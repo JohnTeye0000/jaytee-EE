@@ -534,7 +534,7 @@ function navAsk(q,r,lock){const note=(r&&r.note)||'';const I=SUBJ.images||{};let
   if(q.kind==='problem'){const stm=imgTag('q'+q.no,'problem statement');
     h+=`<div class="panel" style="margin-top:0"><h5>${esc(navRef(q))}</h5>${stm?'':`<p style="margin:6px 0">${esc(q.text)}…</p>`}</div>${stm}`;
     h+=(q.figs||[]).map(n=>imgTag('f'+n,'figure '+n)).join('');
-    if(!stm&&!Object.keys(I).length)h+=`<p class="help">short excerpt only: the full wording and figures are on the textbook page in your copy.</p>`}
+    if(!stm&&!Object.keys(I).length)h+=`<p class="help">this public copy has no page images: it shows only a short text excerpt, and symbols such as µ can be lost (so 5 µm may appear as 5 m). the full statement, figure and solution are in the offline file jaytee-full-with-images.html, or on the textbook page in your copy.</p>`}
   else if(q.kind==='example'){h+=`<div class="panel" style="margin-top:0"><h5>${esc(navRef(q))}</h5><p style="margin:6px 0">${esc(q.text)}…</p></div>`+imgTag('b'+q.page,'textbook page')+(I['b'+(q.page+1)]?`<details style="margin:8px 0"><summary class="sm">next page</summary>${imgTag('b'+(q.page+1),'next page')}</details>`:'')}
   else if(q.kind==='slide1'||q.kind==='slide2'){h+=`<div class="panel" style="margin-top:0"><h5>${esc(navRef(q))}</h5><p style="margin:6px 0"><b>${esc(q.text)}</b></p><p class="help" style="margin:0">lecture example: this slide shows a circuit and its result. before revealing it, work out the key result yourself (gain, impedance, pole or bias condition). the slide is shown after you reveal.</p></div>`}
   else{h+=`<div class="panel" style="margin-top:0"><h5>${esc(navRef(q))}</h5><p style="margin:6px 0">${esc(q.text)}</p></div>`}
